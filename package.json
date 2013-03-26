@@ -1,0 +1,13 @@
+{
+  "author": "cookieu@gmail.com",
+  "name": "matchfiles",
+  "version": "0.0.1",
+  "main":"lib/match-files.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:WeweTom/match-files.git"
+  },
+  "engines": {
+    "node": "~0.8.0"
+  }
+}
