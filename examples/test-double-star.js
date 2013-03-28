@@ -1,10 +1,12 @@
 var matchFiles = require('../lib/match-files')
-  , Path = require('path')
 
-var root = Path.resolve(Path.dirname(__filename),'../lib')
-var stream = matchFiles(root,'*.js')
-
+var stream = matchFiles('../../','match-files/**/treestream.js')
 stream.on('file',function(abs,filename,extname,$){
   console.log(filename)
 })
 
+/* result:
+
+treestream.js
+
+*/
