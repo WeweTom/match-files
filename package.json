@@ -1,7 +1,7 @@
 {
   "author": "cookieu@gmail.com",
   "name": "matchfiles",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main":"lib/match-files.js",
   "repository": {
     "type": "git",
