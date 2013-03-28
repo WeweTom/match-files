@@ -61,7 +61,7 @@ treestream.js
 MatchFiles(searchDir,include,exclude)
 
 ```
-  - `searchDir` {String} 搜索的起始路径
+  - `searchDir` {String} 搜索的起始路径，可以是绝对路径或者相对路径
   - `include` {String | Array} 要搜索的文件
   - `exclude` {String | Array} 要排除的文件
 
@@ -69,3 +69,5 @@ MatchFiles(searchDir,include,exclude)
 
   - `file`  回调函数中 `abs,filename,extname,$` 分别表示匹配到的文件的绝对路径,文件名,后缀名,匹配到的`*`或`**`数组
   - `end`
+
+# 用途
