@@ -8,6 +8,8 @@ describe('match files test',function(){
     assert.equal(Matcher.match('*.txt','foot.js'),false)
     assert.equal(Matcher.match('foo/**/bar/*.txt','foo/moo/goo/bar/myfile.txt'),true)
     assert.equal(Matcher.match('foo.txt','bar/foo.txt'),false)
+    assert.equal(Matcher.match('*.*','a.js'),true)
+    assert.equal(Matcher.match('**','a.js'),true)
   })
 
   it('#matches',function(){
@@ -15,11 +17,9 @@ describe('match files test',function(){
     assert.equal(Matcher.matches(list,'foo.js'),'*.js')
     assert.equal(Matcher.matches(list,'lib/foo.js'),false);
     assert.equal(Matcher.matches(list,'bin/foo.js'),false);
-
-
     assert.equal((Matcher.match('/*.js','/foo.js')),true)
-
   })
+
   it('#match for absolute path',function(){
     assert.equal(Matcher.match('/var/www/f/dropbox/gits/abcenter/ABC/lib/utils/*.js','/var/www/f/dropbox/gits/abcenter/ABC/lib/utils/a.js'),true)
     assert.equal(Matcher.match('/var/www/f/**/abcenter/ABC/lib/utils/*.js','/var/www/f/dropbox/gits/abcenter/ABC/lib/utils/a.js'),true)
