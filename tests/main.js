@@ -1,4 +1,8 @@
 var Path = require('path')
+  , Matchfiles = require('../lib/match-files.js')
 
-var r = Path.resolve('var/www/f/dropbox/gits/abcenter/*/test');
-console.log(r);
+var stream = Matchfiles('.','*.less','');
+stream.on('file',function(abs,filename,extname,$){
+  console.log(abs);
+})
+

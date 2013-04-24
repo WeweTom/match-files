@@ -11,6 +11,7 @@ describe('match files test',function(){
     assert.equal(Matcher.match('*.*','a.js'),true)
     assert.equal(Matcher.match('**','a.js'),true)
     assert.equal(Matcher.match('mods/*.js','mods/*.js'),true)
+    assert.equal(Matcher.match('f:\\dropbox\\gits\\match-files\\tests\\*.less','f:\\dropbox\\gits\\match-files\\tests\\main.less'),true);
   })
 
   it('#matches',function(){
