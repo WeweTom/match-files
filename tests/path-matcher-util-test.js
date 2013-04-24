@@ -1,6 +1,7 @@
 // -*- coding: utf-8; -*-
 var assert = require('assert')
   , util = require('../lib/util')
+  , Path = require('path')
 
 describe('util function tools test',function(){
   it('#isAbsolutePath',function(){
@@ -11,18 +12,19 @@ describe('util function tools test',function(){
   })
 
   it('#getRootFromString',function(){
-    assert.equal(util.getRootFromString('a/b/c'),process.cwd()+'/a')
-    assert.equal(util.getRootFromString('*a/b/c'),process.cwd())
-    assert.equal(util.getRootFromString('**a/b/c'),'/')
-    assert.equal(util.getRootFromString('/a/b/c'),'/a')
+    assert.equal(util.getRootFromString('a/b/c','.','/'),Path.resolve(process.cwd(),'a'))
+    assert.equal(util.getRootFromString('*a/b/c','.','/'),process.cwd())
+    assert.equal(util.getRootFromString('**a/b/c','.','/'),Path.resolve('/'))
+    assert.equal(util.getRootFromString('/a/b/c','.','/'),Path.resolve('/a'))
   })
 
   it('#getProperPath',function(){
-    assert.equal(util.getProperPath('var/www/f/dropbox/gits/abcenter/*/test'),'var/www/f/dropbox/gits/abcenter')
+    assert.equal(util.getProperPath('var/www/f/dropbox/gits/abcenter/*/test','/'),'var/www/f/dropbox/gits/abcenter')
+    assert.equal(util.getProperPath('/var/www/f/dropbox/gits/abcenter/*/test/**/a.js','/'),'/var/www/f/dropbox/gits/abcenter');
   })
 
   it('#getBeginPath',function(){
-    assert.equal(util.getBeginPath(['/var/www/f/dropbox/gits/abcenter/ABC/test/parse_config/**/a.js','/var/www/f/dropbox/gits/abcenter/*/test/**/a.js']),'/var/www/f/dropbox/gits/abcenter')
+    assert.equal(util.getBeginPath(['/var/www/f/dropbox/gits/abcenter/ABC/test/parse_config/**/a.js','/var/www/f/dropbox/gits/abcenter/*/test/**/a.js'],'/'),'/var/www/f/dropbox/gits/abcenter')
   })
   it('#makeMoney',function(){
     var mm = util.makeMoney

@@ -10,6 +10,7 @@ describe('match files test',function(){
     assert.equal(Matcher.match('foo.txt','bar/foo.txt'),false)
     assert.equal(Matcher.match('*.*','a.js'),true)
     assert.equal(Matcher.match('**','a.js'),true)
+    assert.equal(Matcher.match('mods/*.js','mods/*.js'),true)
   })
 
   it('#matches',function(){
